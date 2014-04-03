@@ -6,28 +6,30 @@
 libsource = ./src/hdf5/lib.rs
 binsource = ./src/work.rs
 testsource = ./src/hdf5/test.rs
-hdf5_sourcedir = ./src/pcre/C
-hdf5_lib = libpcre.a
+hdf5_sourcedir = 
+hdf5_libdir = ./src/hdf5/C/bin
+hdf5_lib = libhdf5.a
 
 # compiler switches
 rustc = rustc
 outdirflag = --out-dir .
-rclibflags = --lib -O -L$(clibdir)
-rcbinflags = -O -L.
+rclibflags = --lib -O -L$(hdf5_libdir)
+#rclibflags = --lib -O
+rcbinflags = -O -L. -L$(hdf5_libdir)
 
 # define phony targets
 .PHONY: all lib clean
 
 # default target
-all: lib exe
+#all: lib exe
 
 # lib target
 lib: $(libsource)
-	$(rustc) $(rclibflags) $(outdirflag) $<
+	$(rustc) $(rclibflags) $(outdirflag) $(libsource)
 
 # bin target
-exe: $(binsource)
-	$(rustc) $(rcbinflags) $(outdirflag) $(binsource)
+exe: $(binsource) lib
+	$(rustc) $(rcbinflags) $(outdirflag) $<
 
 # test target
 test: $(testsource) lib
