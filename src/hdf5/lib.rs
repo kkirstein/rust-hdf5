@@ -22,5 +22,16 @@
 //use std::ptr::is_not_null;
 
 // submodules
-//pub mod f;
+pub mod raw;
+pub mod file;
+pub mod dataspace;
+
+// common definitions
+// ==================
+
+// general identifier for HDF5 entities
+pub enum ID { }
+
+// HDF5 error type
+pub enum Error { }
 
