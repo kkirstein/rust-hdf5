@@ -11,11 +11,12 @@
 use std::libc::{c_char, c_uint, c_int, c_ulonglong};
 
 // basic HDF5 types
-type ID = c_int;
-type Error = c_int;
-type Size = c_ulonglong;
+pub type ID = c_int;
+pub type Error = c_int;
+pub type Size = c_ulonglong;
 
 // file creation flags
+#[allow(non_camel_case_types)]
 pub enum H5Flags {
 	H5F_ACC_RDONLY	= 0x0000u,	/*absence of rdwr => rd-only */
 	H5F_ACC_RDWR	= 0x0001u,	/*open for read and write    */
@@ -27,6 +28,7 @@ pub enum H5Flags {
 }
 
 // propertiy flags
+#[allow(non_camel_case_types)]
 pub enum H5PFlags {
 	H5P_DEFAULT		= 0
 }

@@ -10,8 +10,7 @@
 
 #[license = "BSD"];
 
-extern mod extra;
-extern mod hdf5;
+extern crate hdf5;
 
 // tests for file API
 // ==================

@@ -8,13 +8,13 @@
 // Author: Kay-Uwe Kirstein
 //
 
-#[crate_id = "hdf5#0.1"];
-#[crate_type = "dylib"];
-#[desc = "Rust library to read and write HDF5 files (http://www.hdfgroup.org)"];
-#[license = "BSD"];
+#![crate_id = "hdf5#0.1"]
+#![crate_type = "dylib"]
+#![desc = "Rust library to read and write HDF5 files (http://www.hdfgroup.org)"]
+#![license = "BSD"]
 
-// extern libraries
-//extern mod extra;
+// extern crates
+//extern crate extra;
 
 // import symbols
 //use std::libc::{c_void, c_char, c_int};
@@ -30,8 +30,8 @@ pub mod dataspace;
 // ==================
 
 // general identifier for HDF5 entities
-pub enum ID { }
+//pub enum ID { }
 
 // HDF5 error type
-pub enum Error { }
+//pub enum Error { }
 
