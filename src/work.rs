@@ -11,7 +11,7 @@
 // Examples taken from "Learn the basics tutorial" at
 // http://www.hdfgroup.org/HDF5/examples/intro.html#c 
 
-extern mod hdf5;
+extern crate hdf5;
 
 // Create a dataset
 fn crtdat() {
@@ -33,7 +33,7 @@ fn crtdat() {
 		let dataset_name = "/dset";
 		//let dataset_id = H5Dcreate2(file_id, "/dset", H5T_STD_I32BE, dataspace_id,
 		//	H5P_DEFAULT as i32, H5P_DEFAULT as i32, H5P_DEFAULT as i32);
-		let dataset_id = dataset_name.with_c_str( |cstr| H5Dcreate2(file_id, cstr, 13, dataspace_id,
+		let dataset_id = dataset_name.with_c_str( |cstr| H5Dcreate2(file_id, cstr, ::hdf5::raw::H5T_STD_I32BE_g, dataspace_id,
 			H5P_DEFAULT as i32, H5P_DEFAULT as i32, H5P_DEFAULT as i32) );
 
 		// End access to the dataset and release resources used by it
@@ -50,10 +50,10 @@ fn crtdat() {
 
 // main entry point
 fn main() {
-	println("Hello HDF5!");
+	println!("Hello HDF5!");
 
 	crtdat();
 
-	println("Bye bye..");
+	println!("Bye bye..");
 }
 

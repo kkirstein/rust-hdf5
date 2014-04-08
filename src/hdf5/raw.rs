@@ -49,5 +49,17 @@ extern {
 	pub fn H5Dcreate2(loc_id: ID, name: *c_char, dtype_id: ID, space_id: ID,
 		lcpl_id: ID, dcpl_id: ID, dapl_id: ID) -> ID;
 	pub fn H5Dclose(dataset_id: ID);
+
+	// predefined type identifiers
+	pub static H5T_STD_I32BE_g: c_int;
+
 }
+
+// predefined data types
+//#[allow(non_camel_case_types)]
+//pub enum H5TTypes {
+//	H5T_STD_I32BE	= H5T_STD_I32BE_g
+//}
+//pub static H5T_STD_I32BE: ID = H5T_STD_I32BE_g as ID;
+
 
