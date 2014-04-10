@@ -8,6 +8,8 @@
 // Author: Kay-Uwe Kirstein
 //
 
+extern crate collections;
+
 use std::libc::{c_char, c_uint, c_int, c_ulonglong};
 
 // basic HDF5 types
@@ -17,7 +19,7 @@ pub type Size = c_ulonglong;
 
 // file creation flags
 #[allow(non_camel_case_types)]
-pub enum H5Flags {
+pub enum H5FFlags {
 	H5F_ACC_RDONLY	= 0x0000u,	/*absence of rdwr => rd-only */
 	H5F_ACC_RDWR	= 0x0001u,	/*open for read and write    */
 	H5F_ACC_TRUNC	= 0x0002u,	/*overwrite existing files   */

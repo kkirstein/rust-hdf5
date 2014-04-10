@@ -32,8 +32,6 @@ fn crtdat() {
 
 		// Create the dataset
 		let dataset_name = "/dset";
-		//let dataset_id = H5Dcreate2(file_id, "/dset", H5T_STD_I32BE, dataspace_id,
-		//	H5P_DEFAULT as i32, H5P_DEFAULT as i32, H5P_DEFAULT as i32);
 		let dataset_id = dataset_name.with_c_str( |cstr| H5Dcreate2(file_id, cstr, H5T_STD_I32BE.as_id(), dataspace_id,
 			H5P_DEFAULT as i32, H5P_DEFAULT as i32, H5P_DEFAULT as i32) );
 
