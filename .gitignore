@@ -1,3 +1,14 @@
+###################
+## Project specific
+###################
+
+# ignore generated hdf5 files
+*.h5
+
+# ignore hdf5 C-code & binaries
+src/hdf5/C/
+
+
 #############
 ## Rust stuff
 #############
