@@ -18,6 +18,7 @@ fn crtdat() {
 
 	use hdf5::raw::{H5Fcreate, H5Fclose, H5Screate_simple, H5Sclose, H5Dcreate2, H5Dclose};
 	use	hdf5::raw::{H5F_ACC_TRUNC, H5P_DEFAULT};
+	use hdf5::raw::H5T_STD_I32BE;
 
 	unsafe {
 
@@ -33,7 +34,7 @@ fn crtdat() {
 		let dataset_name = "/dset";
 		//let dataset_id = H5Dcreate2(file_id, "/dset", H5T_STD_I32BE, dataspace_id,
 		//	H5P_DEFAULT as i32, H5P_DEFAULT as i32, H5P_DEFAULT as i32);
-		let dataset_id = dataset_name.with_c_str( |cstr| H5Dcreate2(file_id, cstr, ::hdf5::raw::H5T_STD_I32BE_g, dataspace_id,
+		let dataset_id = dataset_name.with_c_str( |cstr| H5Dcreate2(file_id, cstr, H5T_STD_I32BE.as_id(), dataspace_id,
 			H5P_DEFAULT as i32, H5P_DEFAULT as i32, H5P_DEFAULT as i32) );
 
 		// End access to the dataset and release resources used by it

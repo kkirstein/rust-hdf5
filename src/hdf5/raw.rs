@@ -51,15 +51,113 @@ extern {
 	pub fn H5Dclose(dataset_id: ID);
 
 	// predefined type identifiers
-	pub static H5T_STD_I32BE_g: c_int;
+	static H5T_IEEE_F32BE_g: c_int;
+	static H5T_IEEE_F32LE_g: c_int;
+	static H5T_IEEE_F64BE_g: c_int;
+	static H5T_IEEE_F64LE_g: c_int;
+	static H5T_STD_I8BE_g: c_int;
+	static H5T_STD_I8LE_g: c_int;
+	static H5T_STD_I16BE_g: c_int;
+	static H5T_STD_I16LE_g: c_int;
+	static H5T_STD_I32BE_g: c_int;
+	static H5T_STD_I32LE_g: c_int;
+	static H5T_STD_I64BE_g: c_int;
+	static H5T_STD_I64LE_g: c_int;
+	static H5T_STD_U8BE_g: c_int;
+	static H5T_STD_U8LE_g: c_int;
+	static H5T_STD_U16BE_g: c_int;
+	static H5T_STD_U16LE_g: c_int;
+	static H5T_STD_U32BE_g: c_int;
+	static H5T_STD_U32LE_g: c_int;
+	static H5T_STD_U64BE_g: c_int;
+	static H5T_STD_U64LE_g: c_int;
+	static H5T_STD_B8BE_g: c_int;
+	static H5T_STD_B8LE_g: c_int;
+	static H5T_STD_B16BE_g: c_int;
+	static H5T_STD_B16LE_g: c_int;
+	static H5T_STD_B32BE_g: c_int;
+	static H5T_STD_B32LE_g: c_int;
+	static H5T_STD_B64BE_g: c_int;
+	static H5T_STD_B64LE_g: c_int;
+	static H5T_STD_REF_OBJ_g: c_int;
+	static H5T_STD_REF_DSETREG_g: c_int;
 
 }
 
 // predefined data types
-//#[allow(non_camel_case_types)]
-//pub enum H5TTypes {
-//	H5T_STD_I32BE	= H5T_STD_I32BE_g
-//}
+#[allow(non_camel_case_types)]
+pub enum H5TTypes {
+	H5T_IEEE_F32BE,
+	H5T_IEEE_F32LE,
+	H5T_IEEE_F64BE,
+	H5T_IEEE_F64LE,
+	H5T_STD_I8BE,
+	H5T_STD_I8LE,
+	H5T_STD_I16BE,
+	H5T_STD_I16LE,
+	H5T_STD_I32BE,
+	H5T_STD_I32LE,
+	H5T_STD_I64BE,
+	H5T_STD_I64LE,
+	H5T_STD_U8BE,
+	H5T_STD_U8LE,
+	H5T_STD_U16BE,
+	H5T_STD_U16LE,
+	H5T_STD_U32BE,
+	H5T_STD_U32LE,
+	H5T_STD_U64BE,
+	H5T_STD_U64LE,
+	H5T_STD_B8BE,
+	H5T_STD_B8LE,
+	H5T_STD_B16BE,
+	H5T_STD_B16LE,
+	H5T_STD_B32BE,
+	H5T_STD_B32LE,
+	H5T_STD_B64BE,
+	H5T_STD_B64LE,
+	H5T_STD_REF_OBJ,
+	H5T_STD_REF_DSETREG
+}
+
+impl H5TTypes {
+	// convert to ID for easy use
+	pub fn as_id(&self) -> ID {
+		match self {
+			&H5T_IEEE_F32BE			=> H5T_IEEE_F32BE_g,
+			&H5T_IEEE_F32LE			=> H5T_IEEE_F32LE_g,
+			&H5T_IEEE_F64BE			=> H5T_IEEE_F64BE_g,
+			&H5T_IEEE_F64LE			=> H5T_IEEE_F64LE_g,
+			&H5T_STD_I8BE			=> H5T_STD_I8BE_g,
+			&H5T_STD_I8LE			=> H5T_STD_I8LE_g,
+			&H5T_STD_I16BE			=> H5T_STD_I16BE_g,
+			&H5T_STD_I16LE			=> H5T_STD_I16LE_g,
+			&H5T_STD_I32BE			=> H5T_STD_I32BE_g,
+			&H5T_STD_I32LE			=> H5T_STD_I32LE_g,
+			&H5T_STD_I64BE			=> H5T_STD_I64BE_g,
+			&H5T_STD_I64LE			=> H5T_STD_I64LE_g,
+			&H5T_STD_U8BE			=> H5T_STD_U8BE_g,
+			&H5T_STD_U8LE			=> H5T_STD_U8LE_g,
+			&H5T_STD_U16BE			=> H5T_STD_U16BE_g,
+			&H5T_STD_U16LE			=> H5T_STD_U16LE_g,
+			&H5T_STD_U32BE			=> H5T_STD_U32BE_g,
+			&H5T_STD_U32LE			=> H5T_STD_U32LE_g,
+			&H5T_STD_U64BE			=> H5T_STD_U64BE_g,
+			&H5T_STD_U64LE			=> H5T_STD_U64LE_g,
+			&H5T_STD_B8BE			=> H5T_STD_B8BE_g,
+			&H5T_STD_B8LE			=> H5T_STD_B8LE_g,
+			&H5T_STD_B16BE			=> H5T_STD_B16BE_g,
+			&H5T_STD_B16LE			=> H5T_STD_B16LE_g,
+			&H5T_STD_B32BE			=> H5T_STD_B32BE_g,
+			&H5T_STD_B32LE			=> H5T_STD_B32LE_g,
+			&H5T_STD_B64BE			=> H5T_STD_B64BE_g,
+			&H5T_STD_B64LE			=> H5T_STD_B64LE_g,
+			&H5T_STD_REF_OBJ		=> H5T_STD_REF_OBJ_g,
+			&H5T_STD_REF_DSETREG	=> H5T_STD_REF_DSETREG_g
+			//_					=> fail!("Unknown type ID")
+		}
+	}
+}
+
 //pub static H5T_STD_I32BE: ID = H5T_STD_I32BE_g as ID;
 
 
