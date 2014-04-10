@@ -37,9 +37,9 @@ exe: $(binsource) lib
 	$(rustc) $(rcbinflags) $(outdirflag) $<
 
 # test target
-test: $(testsource) lib
-	$(rustc) --test $(rcbinflags) $(outdirflag) $<
-	./test
+test: $(libsource)
+	$(rustc) --test $(rclibflags) $(outdirflag) $<
+	./hdf5
 
 clean:
 

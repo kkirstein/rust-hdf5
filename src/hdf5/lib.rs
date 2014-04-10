@@ -26,6 +26,8 @@ pub mod raw;
 pub mod file;
 pub mod dataspace;
 
+mod test;
+
 // common definitions
 // ==================
 
