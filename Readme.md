@@ -4,7 +4,7 @@ Bindings to the HDF5 library to read and write scientific data files with Rust
 
 ## Status
 
-This project has just started...
+This project is stalled and will not be further developed. For [HDF5](https://www.hdfgroup.org/)-binding please have a look at the [hdf5-rs](https://github.com/aldanor/hdf5-rs) project.
 
 ## Build
 
